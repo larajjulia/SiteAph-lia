@@ -1,0 +1,16 @@
+.w-450 {
+	width: 450px;
+}
+.vh-100 {
+	min-height: 100vh;
+}
+
+/* admin */
+.section-1 {
+	width: 100%;
+	padding: 15px;
+}
+
+.main-table .t1 {
+	width: 90%;
+}

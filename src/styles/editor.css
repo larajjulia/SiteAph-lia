@@ -1,0 +1,38 @@
+body#create_form {
+    font-family: "Atkinson Hyperlegible Next", serif;
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+
+  label.create_label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+  }
+
+  input.create_input[type="text"],
+  textarea.create_textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: var(--color-primary-3);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }

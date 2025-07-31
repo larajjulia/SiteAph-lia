@@ -1,0 +1,111 @@
+/* blog.css */
+
+#services {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.section-subtitle {
+    margin-bottom: 30px;
+}
+
+.work {
+    display: flex;
+    flex-direction: row; /* Padrão para telas maiores: imagem e texto lado a lado */
+    align-items: center;
+    border-radius: 20px;
+    gap: 25px;
+    width: 100%; /* Ocupa a largura total do container */
+    max-width: 900px; /* Adicionado: para limitar a largura máxima em telas grandes */
+    padding: 20px;
+    margin-bottom: 30px;
+    background-color: var(--color-primary-1);
+    box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.work-image {
+    /* Manter a imagem original para telas grandes, ou ajustar se necessário */
+    width: 230px; /* Mantém a largura original para telas maiores */
+    height: 221px; /* Mantém a altura original para telas maiores */
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+    border-radius: 10px; /* Adicionado: Para um visual mais suave */
+}
+
+.work > div { /* Seleciona a div que contém o título, descrição e botão */
+    display: flex;
+    flex-direction: column;
+    /* Alinhamento padrão pode ser ajustado para telas maiores, se necessário */
+}
+
+.work-title {
+    margin-bottom: 10px;
+    text-align: left; /* Padrão para telas maiores */
+}
+
+.work-description {
+    color: #434343;
+    text-align: left; /* Padrão para telas maiores */
+    flex-grow: 1; /* Permite que a descrição ocupe o espaço disponível */
+}
+
+.work-ask {
+    margin-top: 10px;
+    text-align: left; /* Padrão para telas maiores */
+}
+
+/* --- Media Query para Telas Médias (ex: tablets) --- */
+@media screen and (max-width: 1170px) {
+    /* Removido o estilo para #all-services, pois não está presente no blog.php */
+    /* Se #all-services for usado para agrupar .work, ajuste conforme necessário */
+
+    .work {
+        flex-direction: column; /* Altera para coluna em telas menores */
+        width: calc(100% - 40px); /* Ocupa quase 100% da largura, com padding */
+        max-width: 600px; /* Limita a largura para tablets */
+        text-align: center; /* Centraliza o conteúdo dentro do work */
+    }
+
+    .work-image {
+        width: 100%; /* Imagem ocupa a largura total da div.work */
+        height: auto; /* Mantém a proporção da imagem */
+        max-width: 300px; /* Limita o tamanho da imagem para não ficar muito grande */
+        margin-bottom: 15px; /* Espaçamento entre imagem e texto */
+    }
+
+    .work > div {
+        align-items: center; /* Centraliza os itens dentro da div de texto */
+    }
+
+    .work-title,
+    .work-description,
+    .work-ask {
+        text-align: center; /* Centraliza o texto e o botão */
+    }
+}
+
+/* --- Media Query para Telas Pequenas (ex: smartphones) --- */
+@media screen and (max-width: 600px) {
+    .work {
+        width: calc(100% - 40px); /* Garante que o padding seja considerado */
+        padding: 15px; /* Reduz o padding para telas muito pequenas */
+    }
+
+    .work-image {
+        max-width: 250px; /* Diminui ainda mais o tamanho da imagem para celulares */
+    }
+
+    #services .section-subtitle {
+        text-align: center;
+        padding: 0 10px; /* Adiciona um pequeno padding para não colar nas bordas */
+    }
+
+    .section-title {
+        text-align: center;
+        padding: 0 10px;
+    }
+}

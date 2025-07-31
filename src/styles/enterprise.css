@@ -1,0 +1,41 @@
+#enterprise {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+#enterprise_dono {
+    width: 400px;
+    height: auto;
+}
+
+#enterprise .section-subtitle {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+#about_content {
+    width: 100%;
+    height: 100%;
+}
+
+#enterprise figcaption {
+    text-align: center;
+    font-weight: 600;
+}
+
+@media  screen and (max-width:1170px) {
+    #enterprise {
+        flex-direction: column;
+    }
+
+    #enterprise_dono {
+        width: 350px;
+        height: auto;
+    }
+
+    #enterprise figcaption {
+        font-size: 1rem;
+    }
+}
