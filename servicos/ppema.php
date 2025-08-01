@@ -1,3 +1,17 @@
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+session_start();
+$logged = false;
+if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
+    $logged = true;
+    $user_id = $_SESSION['user_id'];
+}
+$notFound = 0;
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -14,80 +28,22 @@
 </head>
 
 <body>
-    <header>
-        <nav id="navbar">
-            <img src="../imagens/logo_completa.png" alt="Logo da empresa Aphélia Engenharia" id="nav_logo" width="100" height="63">
-            
-            <ul id="nav_list">
-                <li class="nav-item active">
-                    <a href="../index.php#home">Início</a>
-                </li>
-                <li class="nav-item">
-                    <a href="../index.php#services">Serviços</a>
-                </li>
-                <li class="nav-item">
-                    <a href="../index.php#enterprise">Empresa</a>
-                </li>
-                <li class="nav-item">
-                    <a href="../blog.php">Blog</a>
-                </li>
-                <li class="nav-item">
-                    <a href="../index.php#testimonials">Avaliações</a>
-                </li>
-                <li class="nav-item">
-                    <a href="../form.html">Contato</a>
-                </li>            
-            </ul>
-            
-            <button id="mobile_btn">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-
-            <button class="btn-default">
-                <a href="../form.html">Faça um Orçamento</a>
-            </button>
-        </nav>
-
-        <div id="mobile_menu">
-            <ul id="mobile_nav_list">
-                <li class="nav-item">
-                    <a href="../index.php#home">Início</a>
-                </li>
-                <li class="nav-item">
-                    <a href="../index.php#services">Serviços</a>
-                </li>
-                <li class="nav-item">
-                    <a href="../index.php#enterprise">Empresa</a>
-                </li>
-                <li class="nav-item">
-                    <a href="../blog.php">Blog</a>
-                </li>
-                <li class="nav-item">
-                    <a href="../index.php#testimonials">Avaliações</a>
-                </li>
-                <li class="nav-item">
-                    <a href="../form.html">Contato</a>
-                </li>            
-            </ul>
-
-            <button class="btn-default">
-                <a href="../form.html">Faça um Orçamento</a>
-            </button>
-        </div>
-    </header>
+   <?php 
+        include '../inc/NavBar.php';
+    ?>
 
     <div class="banner">
         <img src="../imagens/cehtml/meetings.jpg" alt="pessoas reunidas em uma mesa com seus notebooks" width="100%" height="200px">
     </div> 
 
-    <h2 class="section-subtitle">
+    <h2 class="section-subtitle" style="margin-left: 30px; margin-top: 20px;">
         Projeto Padrão de Entrada de Média e Alta
     </h2>
-    <p id="ce_description">
+    <p id="ce_description" style="margin-left: 30px">
         <strong>Projeto Padrão de Entrada de Média e Alta Tensão</strong>
     </p>
 
-    <p id="ce_text">
+    <p id="ce_text" style="margin-left: 30px">
         Desenvolvemos Projetos Elétricos de Padrão de Entrada em Média e Alta Tensão, 
         com assinatura de responsável técnico e emissão da ART, voltados para indústrias, 
         grandes comércios, centros de distribuição, galpões logísticos e empreendimentos 
@@ -117,7 +73,7 @@
         Para saber mais, entre em contato com nossos especialistas e solicite uma consultoria personalizada.
     </p>
 
-    <div id="contact_content">
+    <div id="contact_content" style="width: 50%; height: 60%;">
         <h2 class="section-subtitle">Orçamento via WhatsApp</h2>
         <br>
         <p id="wpp_contact">
@@ -158,5 +114,6 @@
     </aside>
 
     <script src="../src/javascript/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 </html>

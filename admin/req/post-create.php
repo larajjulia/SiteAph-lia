@@ -53,10 +53,6 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
                             header("Location: ../post-add.php?error=" . urlencode($em));
                             exit;
                         }
-
-                        $sql = "INSERT INTO post(post_title, post_text, cover_url) VALUES (?,?,?)";
-                        $stmt = $conn->prepare($sql);
-                        $res = $stmt->execute([$title, $text, $new_image_name]);
                     } else {
                         $em = "Você não pode fazer uploads de imagens desse tipo";
                         header("Location: ../post-add.php?error=$em");

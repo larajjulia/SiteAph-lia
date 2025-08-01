@@ -22,7 +22,7 @@
                 if ($logged) {
                 ?>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="../profile.php" role="button" data-bs-toggle="dropdown"
+                        <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             <i class="fa fa-user" aria-hidden="true"></i>
                             @<?= $_SESSION['username'] ?>
@@ -84,7 +84,7 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item"
                                     href="../logout.php">
-                                    Logout</a></li>
+                                    Sair</a></li>
                         </ul>
                     </li>
                 <?php

@@ -1,10 +1,10 @@
-<?php 
+<?php
 session_start();
 $logged = false;
 if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
-	 $logged = true;
-	 $user_id = $_SESSION['user_id'];
-    }
+    $logged = true;
+    $user_id = $_SESSION['user_id'];
+}
 
 
 ?>
@@ -14,24 +14,48 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
 
 <head>
     <meta charset="UTF-8">
+    <!-- SEO Básico -->
+    <meta name="description" content="Especialistas em projeto padrão de entrada, média e alta tensão. Soluções personalizadas com foco em qualidade, segurança e inovação elétrica.">
+    <meta name="keywords" content="projeto padrão de entrada, padrão de entrada, média tensão, alta tensão, engenharia elétrica, projeto elétrico, consultoria elétrica, Aphélia Engenharia">
+    <meta name="author" content="Aphélia Engenharia">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph para compartilhamento em redes sociais -->
+    <meta property="og:title" content="Aphélia Engenharia - Projeto Padrão de Entrada">
+    <meta property="og:description" content="Projetos e consultoria elétrica em média e alta tensão com excelência técnica.">
+    <meta property="og:image" content="https://www.apheliaengenharia.com.br/imagens/logo_escrita.png">
+    <meta property="og:url" content="https://www.apheliaengenharia.com.br/">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Aphélia Engenharia - Soluções em Padrão de Entrada">
+    <meta name="twitter:description" content="Especialistas em projetos elétricos de média e alta tensão.">
+    <meta name="twitter:image" content="https://www.apheliaengenharia.com.br/imagens/logo_escrita.png">
+
+    <!-- Viewport já está correto -->
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Página da Aphélia</title>
 
     <link rel="stylesheet" href="src/styles/styles.css">
-    <link rel="stylesheet" href="serviços/ppe.html">
-    <link rel="stylesheet" href="serviços/ppema.html">
-    <link rel="stylesheet" href="serviços/sfo.html">
-    <link rel="stylesheet" href="serviços/lpe.html">
-    <link rel="stylesheet" href="serviços/pe.html">
-    <link rel="stylesheet" href="serviços/ce.html">
+    <link rel="stylesheet" href="servicos/ppe.php">
+    <link rel="stylesheet" href="servicos/ppema.php">
+    <link rel="stylesheet" href="servicos/sfo.php">
+    <link rel="stylesheet" href="servicos/lpe.php">
+    <link rel="stylesheet" href="servicos/pe.php">
+    <link rel="stylesheet" href="servicos/ce.php">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
-    <?php 
-        include_once 'inc/NavBar.php';
+    <?php
+    include_once 'inc/NavBar.php';
     ?>
 
     <main id="content">
@@ -48,7 +72,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
                 </p>
 
                 <div id="cta_buttons">
-                    <a href="#services" class="btn-default">Serviços</a>
+                    <a href="#services" class="btn-default">servicos</a>
                     <a href="https://wa.me//5511965069066?text=Olá!%20Tenho%20interesse%20em%20realizar%20um%20orçamento." target="_blank" id="phone-button">
                         <button class="btn-default">
                             <i class="fa-solid fa-phone"></i>
@@ -75,7 +99,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
         </section>
 
         <section id="services">
-            <h2 class="section-title">Nossos Serviços</h2>
+            <h2 class="section-title">Nossos servicos</h2>
             <h3 class="section-subtitle">Padrão de Entrada, Projetos Elétricos, Consultoria e outros</h3>
             <div id="all-services">
                 <div class="work">
@@ -89,7 +113,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
                         O projeto elétrico padrão de entrada define como a energia da concessionária será ligada ao imóvel.
                     </span>
                     <div class="work-ask">
-                        <a href="serviços/ppe.html" style="text-decoration: none;">
+                        <a href="servicos/ce.php" style="text-decoration: none;">
                             <button class="btn-default">
                                 Saiba Mais
                             </button>
@@ -107,7 +131,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
                         É o projeto que define como a energia em média ou alta tensão será ligada da concessionária ao imóvel.
                     </span>
                     <div class="work-ask">
-                        <a href="serviços/ppema.html" style="text-decoration: none;">
+                        <a href="servicos/ppema.php" style="text-decoration: none;">
                             <button class="btn-default">
                                 Saiba Mais
                             </button>
@@ -125,7 +149,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
                         Sistemas fotovoltaicos on-grid são conectados à rede elétrica e geram energia solar para consumo imediato.
                     </span>
                     <div class="work-ask">
-                        <a href="serviços/sfo.html" style="text-decoration: none;">
+                        <a href="servicos/sfo.php" style="text-decoration: none;">
                             <button class="btn-default">
                                 Saiba Mais
                             </button>
@@ -145,7 +169,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
                         Laudos e prontuários elétricos são documentos técnicos que avaliam as condições das instalações elétricas.
                     </span>
                     <div class="work-ask">
-                        <a href="serviços/lpe.html" style="text-decoration: none;">
+                        <a href="servicos/lpe.php" style="text-decoration: none;">
                             <button class="btn-default">
                                 Saiba Mais
                             </button>
@@ -163,7 +187,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
                         Projetos elétricos são documentos que planejam e detalham a instalação elétrica de um imóvel.
                     </span>
                     <div class="work-ask">
-                        <a href="serviços/pe.html" style="text-decoration: none;">
+                        <a href="servicos/pe.php" style="text-decoration: none;">
                             <button class="btn-default">
                                 Saiba Mais
                             </button>
@@ -181,7 +205,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
                         Suporte para elaboração de propostas técnico comerciais com levantamento em planta e/ou vistorias técnicas.
                     </span>
                     <div class="work-ask">
-                        <a href="serviços/ce.html" style="text-decoration: none;">
+                        <a href="servicos/ce.php" style="text-decoration: none;">
                             <button class="btn-default">
                                 Saiba Mais
                             </button>
@@ -203,15 +227,15 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
                         Missão: Servir nossos clientes trazendo sempre o melhor sistema elétrico dentro da realidade econômica de cada um, sempre
                         com muita segurança, inteligência e inovação. <br><br>
                         Visão: Estar entre as 10 maiores empresas mais reconhecidas em qualidade técnica e confiabilidade na entrega de projetos
-                        e serviços elétricos até 2030. <br><br>
+                        e servicos elétricos até 2030. <br><br>
                         Valores: Entender as necessidades dos clientes para oferecer soluções personalizadas, com agilidade e eficiência. <br><br>
                         E-mail: engenharia@aphelia.com.br<br><br>
                         Celular: (11) 96506-9066
                     </p>
                 </div>
             </div>
-            <figure>
-                <img src="imagens/junior.png" id="enterprise_dono" alt="Foto personalizada do dono da Aphélia, Cesar Júnior" />
+            <figure style="max-width: 100%;">
+                <img src="imagens/junior.png" id="enterprise_dono" alt="Foto personalizada do dono da Aphélia, Cesar Júnior"/>
                 <figcaption>
                     Cesar Junior, 32 anos.
                 </figcaption>
@@ -369,6 +393,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
     </aside>
 
     <script src="src/javascript/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 
 </html>

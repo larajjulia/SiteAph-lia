@@ -58,6 +58,29 @@
     text-align: left; /* Padrão para telas maiores */
 }
 
+.like-btn.liked {
+    color: var(--color-primary-3);
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.blog-thumb {
+    width: 230px;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.blog-cover {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+
+
 /* --- Media Query para Telas Médias (ex: tablets) --- */
 @media screen and (max-width: 1170px) {
     /* Removido o estilo para #all-services, pois não está presente no blog.php */
@@ -68,6 +91,7 @@
         width: calc(100% - 40px); /* Ocupa quase 100% da largura, com padding */
         max-width: 600px; /* Limita a largura para tablets */
         text-align: center; /* Centraliza o conteúdo dentro do work */
+        position: relative;
     }
 
     .work-image {
@@ -79,6 +103,7 @@
 
     .work > div {
         align-items: center; /* Centraliza os itens dentro da div de texto */
+        position: relative;
     }
 
     .work-title,
@@ -109,3 +134,4 @@
         padding: 0 10px;
     }
 }
+

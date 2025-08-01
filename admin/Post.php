@@ -58,10 +58,9 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['username'])) {
 						<th scope="row"><?=$post['post_id']?></th>
 						<td><a href="single_post.php?post_id=<?=$post['post_id']?>"><?=$post['post_title']?></a></td>
 						<td>
-							<i class="fa fa-comment" aria-hidden="true"></i> Comentários ()
-							<?php 
+							<i class="fa fa-comment" aria-hidden="true"></i> Comentários ( <?php 
 								echo CountByPostID($conn, $post['post_id']);
-							?>
+							?> )
 						</td>
 						<td>
 							<i class="fa fa-thumbs-up" aria-hidden="true"> 

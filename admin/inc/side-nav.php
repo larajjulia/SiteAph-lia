@@ -58,7 +58,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="#">
+					<a href="../admin/profile.php">
 						<i class="fa fa-cog" aria-hidden="true"></i>
 						<span>Configurações</span>
 					</a>

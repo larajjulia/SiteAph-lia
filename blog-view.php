@@ -53,17 +53,26 @@ if (isset($_GET['post_id'])) {
         include 'inc/NavBar.php';
         ?>
 
-        <div class="container mt-5" width="100%">
+        <div class="container mt-5 w-80">
             <section>
 
                 <main class="main-blog">
 
-                    <div class="card main-blog-card mb-5">
+                    <div class="card main-blog-card mb-5" width="50%">
                         <img src="upload/blog/<?= $post['cover_url'] ?>" class="card-img-top" alt="..." width="300px" height="300px">
                         <div class="card-body">
                             <h5 class="card-title"><?= $post['post_title'] ?></h5>
                             <p class="card-textt ext-break text-wrap w-100">
-                                <?= $post['post_text'] ?>
+                                <?php
+                                // Remove a tag div e seus atributos, deixando apenas o conteúdo interno
+                                // Isso assume que o div sempre envolve o conteúdo principal do post_text
+                                $clean_text = preg_replace('/<div[^>]*>(.*?)<\/div>/s', '$1', $post['post_text']);
+
+                                // Agora, remova qualquer atributo style remanescente em outras tags se necessário
+                                $clean_text = preg_replace('/style="[^"]*?"/', '', $clean_text);
+
+                                echo $clean_text;
+                                ?>
                             </p>
                             <hr>
                             <div class="d-flex justify-content-between">
@@ -72,36 +81,24 @@ if (isset($_GET['post_id'])) {
                                     $post_id = $post['post_id'];
                                     if ($logged) {
                                         $liked = isLikedByUserID($conn, $post_id, $user_id);
-
-
-                                        if ($liked) {
+                                        $likedClass = $liked ? 'liked' : '';
+                                        $likedAttr = $liked ? 1 : 0;
                                     ?>
-                                            <i class="fa fa-thumbs-up liked like-btn"
-                                                post-id="<?= $post_id ?>"
-                                                liked="1"
-                                                aria-hidden="true"></i>
-                                        <?php } else { ?>
-                                            <i class="fa fa-thumbs-up like like-btn"
-                                                post-id="<?= $post_id ?>"
-                                                liked="0"
-                                                aria-hidden="true"></i>
-                                        <?php }
-                                    } else { ?>
+                                        <i class="fa fa-thumbs-up like-btn <?= $likedClass ?>"
+                                            data-post-id="<?= $post_id ?>"
+                                            data-liked="<?= $likedAttr ?>"
+                                            aria-hidden="true"></i>
+                                    <?php } else { ?>
                                         <i class="fa fa-thumbs-up" aria-hidden="true"></i>
                                     <?php } ?>
                                     Likes (
-                                    <span><?php
-                                            echo likeCountByPostID($conn, $post['post_id']);
-                                            ?></span> )
+                                    <span id="like-count"><?= likeCountByPostID($conn, $post['post_id']) ?></span> )
                                     <i class="fa fa-comment" aria-hidden="true"></i> Comentários (
-                                    <?php
-                                    echo CountByPostID($conn, $post['post_id']);
-                                    ?>
-                                    )
-
+                                    <?= CountByPostID($conn, $post['post_id']) ?> )
                                 </div>
                                 <small class="text-body-secondary"><?= $post['created_at'] ?></small>
                             </div>
+
 
                             <form action="php/comment.php"
                                 method="post"
@@ -170,7 +167,7 @@ if (isset($_GET['post_id'])) {
 
                 <div class="social-media-buttons">
                     <a href="">
-                    <i class="fa-brands fa-linkedin"></i>
+                        <i class="fa-brands fa-linkedin"></i>
                     </a>
                     <a href="">
                         <i class="fa-brands fa-instagram"></i>
@@ -190,25 +187,83 @@ if (isset($_GET['post_id'])) {
 
         <script>
             $(document).ready(function() {
+                $('#mobile_btn').on('click', function() {
+                    $('#mobile_menu').toggleClass('active');
+                    $('#mobile_btn').find('i').toggleClass('fa-x');
+                });
+
+                // ScrollReveal continua funcionando normalmente
+                ScrollReveal().reveal('#cta', {
+                    origin: 'left',
+                    duration: 1500,
+                    distance: '20%'
+                });
+
+                ScrollReveal().reveal('.work', {
+                    origin: 'left',
+                    duration: 1500,
+                    distance: '20%'
+                });
+
+                ScrollReveal().reveal('#testimonials.balao', {
+                    origin: 'left',
+                    duration: 1000,
+                    distance: '20%'
+                });
+
+                ScrollReveal().reveal('.feedback', {
+                    origin: 'right',
+                    duration: 1000,
+                    distance: '20%'
+                });
+
+                ScrollReveal().reveal('#enterprise', {
+                    origin: 'right',
+                    duration: 1500,
+                    distance: '20%'
+                });
+
+                ScrollReveal().reveal('#questions_content', {
+                    origin: 'right',
+                    duration: 1000,
+                    distance: '20%'
+                });
+
+                ScrollReveal().reveal('#contact_form', {
+                    origin: 'right',
+                    duration: 1000,
+                    distance: '20%'
+                });
+
+                ScrollReveal().reveal('#thanks', {
+                    origin: 'right',
+                    duration: 1000,
+                    distance: '20%'
+                });
+            });
+        </script>
+
+        <script>
+            $(document).ready(function() {
                 $(".like-btn").click(function() {
-                    var btn = $(this);
-                    var post_id = btn.attr('post-id');
-                    var liked = btn.attr('liked');
+                    const btn = $(this);
+                    const post_id = btn.data("post-id");
+                    let liked = btn.data("liked");
 
                     $.post("ajax/like-unlike.php", {
                         post_id: post_id
                     }, function(data) {
-                        btn.siblings("span").first().text(data);
+                        $("#like-count").text(data);
                     });
 
-                    // Alternar estado visual
                     if (liked == 1) {
-                        btn.attr('liked', '0').removeClass('liked');
+                        btn.data("liked", 1).removeClass("liked");
                     } else {
-                        btn.attr('liked', '1').addClass('liked');
+                        btn.data("liked", 0).addClass("liked");
                     }
                 });
             });
+
 
             var nav_list = document.getElementById('nav_list').children;
             nav_list.item(3).classList.add("active");
